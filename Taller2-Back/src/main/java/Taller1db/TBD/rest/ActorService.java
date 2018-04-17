@@ -4,7 +4,8 @@ import Taller1db.TBD.Entities.Actor;
 import Taller1db.TBD.repository.ActorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
+import Taller1db.TBD.Entities.Film;
+import java.util.Set;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -35,6 +36,13 @@ public class ActorService {
     public Actor getActor(@PathVariable Integer id) {
         Long actorId = id.longValue();
         return actorRepository.findActorById(actorId);
+    }
+
+    @CrossOrigin
+    @RequestMapping(value = "/{id}/films", method = RequestMethod.GET)
+    @ResponseBody
+    public Set<Film> movieTheActor (@PathVariable("id") Long id) {
+        return actorRepository.findActorById(id).getFilms();
     }
 
     @CrossOrigin

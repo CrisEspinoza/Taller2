@@ -2,9 +2,14 @@ package Taller1db.TBD.Entities;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-public class Actor {
+@Table(name="Actor")
+public class Actor implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,6 +24,13 @@ public class Actor {
 
     @Column(name = "last_update", nullable = false)
     private Timestamp lastUpdate;
+
+    @ManyToMany(cascade = {CascadeType.ALL})
+    @JsonIgnore
+    @JoinTable(name="films_actor",
+            joinColumns={@JoinColumn(name="actor_id")},
+            inverseJoinColumns={@JoinColumn(name="films_id")})
+    private Set<Film> films =new HashSet<Film>();
 
     public Actor() {
     }
@@ -60,5 +72,9 @@ public class Actor {
     public void setLastUpdate(Timestamp lastUpdate) {
         this.lastUpdate = lastUpdate;
     }
+
+    public Set<Film> getFilms() { return films; }
+
+    public void setFilms(Set<Film> films) { this.films = films; }
 }
 
