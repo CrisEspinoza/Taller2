@@ -18,9 +18,9 @@
     </form>
 
     <div class="isa_info">
-               <i class="fa fa-info-circle"></i>
-               Ingrese su Nombre y Apellido según corresponda.
-           </div>
+      <i class="fa fa-info-circle"></i>
+        Ingrese su Nombre y Apellido según corresponda.
+    </div>
 
     <div v-if="submitted">
       <h2>¡Actor añadido!</h2>
@@ -67,17 +67,16 @@ export default {
 
     sendData() {
       console.log("llego aca");
-       this.$http.post('http://localhost:8081/actors/create', this.actor).then((response) => {
+      this.$http.post('http://localhost:8081/actors/create', this.actor).then((response) => {
          this.actor.firstName='';
          this.actor.lastName='';
          this.submitted=true;
          this.error=false;
         }, (response) => {
           this.error=true;
-        });
-
-      }
-    },
+      });
+    }
+  },
 
 }
 </script>

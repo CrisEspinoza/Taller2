@@ -40,12 +40,14 @@ public class ActorService {
         return actorRepository.findActorById(actorId);
     }
 
+    /////////////////////////////////////////////////////////////////////////////////////////////////
     //retorna todas las peliculas de un detemrinado actor, se llama con la ruta /actors/idActor/films
     @RequestMapping(value = "/{id}/films", method = RequestMethod.GET)
     @ResponseBody
     public Set<Film> movieTheActor (@PathVariable("id") Long id) {
         return actorRepository.findActorById(id).getFilms();
     }
+    /////////////////////////////////////////////////////////////////////////////////////////////////
 
     //agrega una nueva pelicula a un determinado actor, se llama con la ruta /actors/idActor/films/idFilms
     @PostMapping("/{id}/films/{idFilms}")
