@@ -8,6 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.Timestamp;
+import java.text.ParseException;
+import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
@@ -20,12 +23,15 @@ public class FilmService {
     @Autowired
     private ActorRepository actorRepository;
 
+    // retorna todas las peliculas de la base de datos, se llama con la ruta /films
     @RequestMapping(method = RequestMethod.GET)
     @ResponseBody
     public List<Film> getAllFilm() {
         return filmRepository.findAll();
     }
 
+
+    // retorna todos los actores que participan en una determinada pelicula, se llama con la ruta /films/idFilms/actors
     @GetMapping("{id}/actors")
     @ResponseBody
     public Set<Actor> actorTheMovie (@PathVariable("id") Long id){
@@ -33,6 +39,7 @@ public class FilmService {
 
     }
 
+    // permite agregar un nuevo actor a una determinada pelicula, se llama con la ruta /films/idFilm/actors/idActor
     @PostMapping("{idFilm}/actors/{idActor}")
     @ResponseBody
     public HttpStatus matchFilm(@PathVariable("idFilm") Long idFilm, @PathVariable("idActor") Long  idActor){
@@ -47,6 +54,14 @@ public class FilmService {
         else
             return HttpStatus.NOT_ACCEPTABLE;
 
+    }
+
+    // Permite registrar un nuevo films en la base de datos, se llama con la ruta /films/create
+    @PostMapping("/create")
+    @ResponseBody
+    public Film create(@RequestBody Film resource)  {
+
+        return filmRepository.save(resource);
     }
 
 

@@ -25,13 +25,14 @@ public class ActorService {
     @Autowired
     private FilmRepository filmRepository;
 
-
+    // retorna todos los actores de la base de datos Actors, se llama con la ruta /actors
     @RequestMapping(method = RequestMethod.GET)
     @ResponseBody
     public List<Actor> getAllActors() {
         return actorRepository.findAll();
     }
 
+    // retorna un determinado actor segun la id entregada, se llama con la ruta /actors/id
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     @ResponseBody
     public Actor getActor(@PathVariable Integer id) {
@@ -39,12 +40,14 @@ public class ActorService {
         return actorRepository.findActorById(actorId);
     }
 
+    //retorna todas las peliculas de un detemrinado actor, se llama con la ruta /actors/idActor/films
     @RequestMapping(value = "/{id}/films", method = RequestMethod.GET)
     @ResponseBody
     public Set<Film> movieTheActor (@PathVariable("id") Long id) {
         return actorRepository.findActorById(id).getFilms();
     }
 
+    //agrega una nueva pelicula a un determinado actor, se llama con la ruta /actors/idActor/films/idFilms
     @PostMapping("/{id}/films/{idFilms}")
     @ResponseBody
     public HttpStatus match (@PathVariable("id") Long id, @PathVariable("idFilms") Long idFilms) {
@@ -60,6 +63,7 @@ public class ActorService {
             return HttpStatus.NOT_ACCEPTABLE;
     }
 
+    //Registra un nuevo actor en al base de datos, se llama con la ruta /actors/create
     @PostMapping("/create")
     @ResponseBody
     public Actor create(@RequestBody Actor resource) throws ParseException {
