@@ -11,6 +11,8 @@
         <a href="#/addActors">Agregar actor</a>
         <a href="#/viewMovies">Peliculas</a>
         <a href="#/addMovie">Agregar película</a>
+        <a href="#/FilmWithActor">Asociar pelicula con un actor</a>
+        <a href="#/ActorWithFilm">Asociar actor con una pelicula</a>
       </nav>
     </header>
 
