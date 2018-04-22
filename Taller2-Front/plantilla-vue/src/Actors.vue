@@ -1,33 +1,42 @@
 <template>
+
   <div class="center">
-    <h2>{{title}}</h2>
+    <h2>Actores:</h2>
     <ul class="user-list">
       <li v-for="u,i in users">
         <img :src="'https://robohash.org/'+i+'?size=50x50'" />
-        <span>{{u.firstName}} {{u.lastName}}</span>
-        <span class="date">{{Date(u.lastUpdate)}}</span>
-        
-        <button @click=findFilms(u.id)>Ver películas</button>
-
-
+        <span>{{u.id}}.-  {{u.firstName}} {{u.lastName}}</span>
+        <hr>
+           <button class="button_miau" @click=findFilms(u.id)>+</button>
       </li>
+           <ul class="user-list">
+            <li v-for="pelicula in film">
+              <div class="isa_info"> <i class="fa fa-info-circle"></i>{{pelicula.firstName}}
+              </div>
+
+            </li>
+           </ul>
     </ul>
   </div>
+
+
 </template>
 
 
 <script>
+
+
+
 export default {
   data(){
     return{
-      title:'Actores',
       users:[],
       film:[],
-      f:0
+      f:0,
+        alert: true
     }
   },
   mounted:function(){
-    console.log('Index.vue');
 
     // GET /someUrl
     this.$http.get('http://localhost:8081/actors')
@@ -49,8 +58,8 @@ export default {
       .then(response=>{
         //get films from actor
         this.film = response.body;
+        console.log(this.film)
         console.log('películas leídas')
-        console.log(JSON.stringify(this.film, null, 2))
 
       },response => {
         console.log('error leyendo peliculas');

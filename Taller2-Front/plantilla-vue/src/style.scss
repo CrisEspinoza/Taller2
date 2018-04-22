@@ -1,10 +1,14 @@
 $main-color: #000000;
-$secondary-color: #fed8a2;
+$secondary-color: #fedcb6;
 /**
  * Demo Styles
  */
 /*URL */
 @import url('//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
+
+
+
 
 /*Alert message*/
 isa_info, .isa_success, .isa_warning, .isa_error {
@@ -44,6 +48,21 @@ html {
 *:before,
 *:after {
   box-sizing: inherit;
+}
+
+.button_miau {
+  background-color: #fe6d3c;
+  border: none;
+  border-radius: 2px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  color: $secondary-color;
+  padding: 5px 5px;
+  text-align: right;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  box-sizing: border-box;
+  transition: all 500ms ease;
 }
 
 .button {

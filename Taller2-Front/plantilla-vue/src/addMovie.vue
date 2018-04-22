@@ -7,7 +7,7 @@
             <label for="nombre">
                 Título:
             </label>
-            <input id="nombre"  type="text" v-model="film.first_name"   required /><br>
+            <input id="nombre"  type="text" v-model="film.firstName"   required /><br>
             <hr></hr>
             <button type="submit" class="button"
             >Agregar película</button>
@@ -49,7 +49,7 @@
             //Datos objeto actor
             return{
                 film:{
-                    first_name:''
+                    firstName:''
                 },
                 submitted: false,
                 error:false
@@ -62,7 +62,7 @@
             sendData() {
                 console.log("llego aca");
                 this.$http.post('http://localhost:8081/films/create', this.film).then((response) => {
-                    this.film.first_name='';
+                    this.film.firstName='';
                     this.submitted=true;
                     this.error=false;
                 }, (response) => {
