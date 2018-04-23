@@ -8,9 +8,9 @@ GRUPO 7 - INTEGRANTES:
 - Jesus Mura
 - Sebastian Pinto	
 
-* Tenemos que este taller contiene dos carpetas por un lado tenemos que contiene Taller1-TBD y por el otro lado tenemos a Taller1-TBD-Front.
+* Tenemos que este taller contiene dos carpetas por un lado tenemos que contiene Taller2-TBD y por el otro lado tenemos a Taller2-TBD-Front.
 
-	* En primer lugar la carpeta Taller1-TBD:
+	* En primer lugar la carpeta Taller2-TBD:
 
 		* Esta carpeta se encarga de contener el backend de la aplicación.
 		* Para poder ejecutarla basta con colocar el comando "gradle bootrun".
@@ -26,8 +26,8 @@ GRUPO 7 - INTEGRANTES:
 	* http://localhost:8081/actors/x/films/y -> Este metodo relaciona al actor x con la pelicula y, en la tabla intermedia que se genero. 
 	* http://localhost:8081/films/x/actors/y -> Este metodo relaciona a la pelicula x con el actor y, en la tabla intermedia que se genero.
 
-* Por ultimo, tenemos la carpeta Taller1-TBD-Front:
-	* En esta carpeta tenemos localizado el front-end del taller 1.
+* Por ultimo, tenemos la carpeta Taller2-TBD-Front:
+	* En esta carpeta tenemos localizado el front-end del taller 2.
 	* Para poder ejecutar esta aplicación tenemos que seguir esta secuencia de pasos:
 		* Entrar a la carpeta plantilla-vue
 		* Instalar las dependencias con el siguiente comando: npm install
