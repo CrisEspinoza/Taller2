@@ -58,6 +58,7 @@ public class ActorService {
         Film film = filmRepository.findFilmsById(idFilms);
         if ( actor !=  null &&  film != null) {
             actor.getFilms().add(film);
+            film.getActors().add(actor);
             actorRepository.save(actor);
             return HttpStatus.OK;
         }

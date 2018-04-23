@@ -14,7 +14,7 @@
                 {{m.id}}
             </option>
         </select>
-        <span>Seleccionado 2: {{auxi}}</span>
+        <span>Seleccionado 2: {{auxi}} </span>
 
 
         <button class="button" @click=sendData(aux,auxi)>+</button>
@@ -109,19 +109,8 @@
                 });
             },
 
-            findActors(value){
-                console.log(value);
-                this.$http.get('http://localhost:8081/films/'+value+'/actors')
-                    .then(response=>{
-                    //get films from actor
-                    this.actors = response.body;
-            },response => {
-                    console.log('error leyendo peliculas');
-                });
-            },
-
             sendData(value, valuee) {
-                this.$http.post('http://localhost:8081/films/'+valuee+'/actors/'+value).then((response) => {
+                this.$http.post('http://localhost:8081/actors/'+value+'/films/'+valuee).then((response) => {
                     this.submitted=true;
                     this.error=false;
                     console.log(valuee, value);
