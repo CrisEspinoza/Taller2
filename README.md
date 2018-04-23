@@ -27,8 +27,8 @@ GRUPO 7 - INTEGRANTES:
 	* http://localhost:8081/films/x/actors/y -> Este metodo relaciona a la pelicula x con el actor y, en la tabla intermedia que se genero.
 
 * Por ultimo, tenemos la carpeta Taller1-TBD-Front:
-	En esta carpeta tenemos localizado el front-end del taller 1.
-	Para poder ejecutar esta aplicación tenemos que seguir esta secuencia de pasos:
+	* En esta carpeta tenemos localizado el front-end del taller 1.
+	* Para poder ejecutar esta aplicación tenemos que seguir esta secuencia de pasos:
 		Entrar a la carpeta plantilla-vue
 		Instalar las dependencias con el siguiente comando: npm install
 		Ejecutar la aplicación con el comando: npm run dev.
