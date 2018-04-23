@@ -12,9 +12,9 @@ GRUPO 7 - INTEGRANTES:
 
 	* En primer lugar la carpeta Taller1-TBD:
 
-		Esta carpeta se encarga de contener el backend de la aplicación.
-		Para poder ejecutarla basta con colocar el comando "gradle bootrun".
-		Ahora si desea verifcar los servicios por serapado del front-end, basta con colocar estas url en el Postman: 
+		* Esta carpeta se encarga de contener el backend de la aplicación.
+		* Para poder ejecutarla basta con colocar el comando "gradle bootrun".
+		* Ahora si desea verifcar los servicios por serapado del front-end, basta con colocar estas url en el Postman: 
  
 - Metodos Get 
 
@@ -29,8 +29,8 @@ GRUPO 7 - INTEGRANTES:
 * Por ultimo, tenemos la carpeta Taller1-TBD-Front:
 	* En esta carpeta tenemos localizado el front-end del taller 1.
 	* Para poder ejecutar esta aplicación tenemos que seguir esta secuencia de pasos:
-		Entrar a la carpeta plantilla-vue
-		Instalar las dependencias con el siguiente comando: npm install
-		Ejecutar la aplicación con el comando: npm run dev.
+		* Entrar a la carpeta plantilla-vue
+		* Instalar las dependencias con el siguiente comando: npm install
+		* Ejecutar la aplicación con el comando: npm run dev.
 
 
