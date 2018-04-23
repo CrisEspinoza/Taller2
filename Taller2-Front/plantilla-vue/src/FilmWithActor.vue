@@ -3,21 +3,45 @@
     <div class="center">
         <h2>Actor:</h2>
         <select v-model="aux">
-            <option v-for="r,j in users">
-                {{ r.firstName }}
+            <option v-for="r , j in users">
+                {{ r.id }}
             </option>
         </select>
+        <span>Seleccionado 1: {{aux}}</span>
         <h2> Asociar a la pelicula: </h2>
-        <select>
+        <select v-model="auxi">
             <option v-for="m , i in movies">
-                {{m.firstName}}
+                {{m.id}}
             </option>
         </select>
-        <h1></h1>
+        <span>Seleccionado 2: {{auxi}}</span>
 
-        <button class="button" @click=sendData(j,i)>+</button>
+
+        <button class="button" @click=sendData(aux,auxi)>+</button>
+        <hr/>
+        <div class="isa_info">
+            <i class="fa fa-info-circle"></i>
+            Seleccione las opciones que desea vincular.
+        </div>
+
+        <div v-if="submitted">
+            <h2>¡Actor añadido!</h2>
+            <div class="isa_success">
+                <i class="fa fa-check"></i>
+                La relación ha sido añadida exitosamente.
+            </div>
+        </div>
+
+        <div v-if="error">
+            <h2>¡Error!</h2>
+            <div class="isa_error">
+                <i class="fa fa-times"></i>
+                No se pudo añadir la relación.
+            </div>
+        </div>
 
     </div>
+
 
 
 </template>
@@ -36,7 +60,8 @@
                 actors: [],
                 submitted: false,
                 error: false,
-                aux: []
+                aux: '',
+                auxi: ''
             }
         },
 
@@ -95,18 +120,17 @@
                 });
             },
 
-            sendData (value,value1) {
-                console.log( value );
-                /*this.$http.post('http://localhost:8081/actors/create', this.actor).then((response) => {
-            }, (response) => {
+            sendData(value, valuee) {
+                this.$http.post('http://localhost:8081/films/'+valuee+'/actors/'+value).then((response) => {
+                    this.submitted=true;
+                    this.error=false;
+                    console.log(valuee, value);
+                }, (response) => {
                     this.error=true;
-                };
-            }*/
+                    cosole.log('error');
+                });
             }
         }
+
     }
 </script>
-
-<style scoped>
-
-</style>
